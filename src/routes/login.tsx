@@ -42,11 +42,42 @@ function LoginPage() {
     }
   }, [message])
 
+  // Smart redirection based on user_type
+  const getSmartRedirectUrl = (user: any) => {
+    if (!user || !user.userType) {
+      return '/dashboard' // Default fallback
+    }
+
+    // Smart redirection based on user type
+    switch (user.userType.toLowerCase()) {
+      case 'admin':
+      case 'superadmin':
+        return '/dashboard/admin' // Admin users go to admin panel
+      case 'teacher':
+      case 'student':
+      case 'staff':
+      case 'superstaff':
+        return '/dashboard' // Other users go to general dashboard
+      default:
+        return '/dashboard'
+    }
+  }
+
   // Handle successful login
   const handleLoginSuccess = (user: any) => {
     console.log('Login successful:', user)
-    const redirectUrl = getRedirectUrl()
-    navigate({ to: redirectUrl })
+
+    // Check if there's a specific redirect URL, otherwise use smart redirection
+    const specificRedirect = getRedirectUrl()
+    const smartRedirect = getSmartRedirectUrl(user)
+
+    // Use specific redirect if it's not the default, otherwise use smart redirect
+    const finalRedirect = (specificRedirect !== '/' && specificRedirect !== '/dashboard')
+      ? specificRedirect
+      : smartRedirect
+
+    console.log('Redirecting to:', finalRedirect)
+    navigate({ to: finalRedirect })
   }
 
   // Handle login error
@@ -71,30 +102,42 @@ function LoginPage() {
     <div style={{
       minHeight: '100vh',
       display: 'flex',
+      flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: '#f8f9fa',
-      padding: '24px'
+      padding: '24px',
+      position: 'relative'
     }}>
       {/* Offline Indicator */}
       <OfflineIndicator />
 
-      {/* Login Form */}
-      <LoginForm
-        config={{
-          primaryColor: PUBFLOW_CONFIG.PRIMARY_COLOR,
-          secondaryColor: PUBFLOW_CONFIG.SECONDARY_COLOR,
-          appName: PUBFLOW_CONFIG.APP_NAME,
-          logo: PUBFLOW_CONFIG.APP_LOGO,
-          showPasswordReset: true,
-          showAccountCreation: true,
-          redirectPath: getRedirectUrl()
-        }}
-        onSuccess={handleLoginSuccess}
-        onError={handleLoginError}
-        onPasswordReset={handlePasswordReset}
-        onAccountCreation={handleAccountCreation}
-      />
+      {/* Centered Login Container */}
+      <div style={{
+        width: '100%',
+        maxWidth: '450px',
+display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        {/* Login Form */}
+        <LoginForm
+          config={{
+            primaryColor: PUBFLOW_CONFIG.PRIMARY_COLOR,
+            secondaryColor: PUBFLOW_CONFIG.SECONDARY_COLOR,
+            appName: PUBFLOW_CONFIG.APP_NAME,
+            logo: PUBFLOW_CONFIG.APP_LOGO,
+            showPasswordReset: true,
+            showAccountCreation: true,
+            redirectPath: getRedirectUrl()
+          }}
+          onSuccess={handleLoginSuccess}
+          onError={handleLoginError}
+          onPasswordReset={handlePasswordReset}
+          onAccountCreation={handleAccountCreation}
+        />
+      </div>
     </div>
   )
 }

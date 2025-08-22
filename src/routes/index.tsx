@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { createFileRoute, useNavigate, Link } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { useAuth, useTheme } from '@pubflow/react'
 import logo from '../logo.svg'
@@ -110,6 +110,25 @@ function App() {
           >
             Create Account
           </button>
+
+          <Link
+            to="/test"
+            style={{
+              padding: `${theme.spacing.md} ${theme.spacing.xl}`,
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              color: '#ffffff',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: theme.borderRadius.medium,
+              fontSize: '16px',
+              fontWeight: '600',
+              cursor: 'pointer',
+              textDecoration: 'none',
+              display: 'inline-block',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            Test Routing
+          </Link>
         </div>
 
         <div style={{
@@ -155,6 +174,16 @@ function App() {
           >
             Learn Pubflow
           </a>
+          <Link
+            to="/test"
+            style={{
+              color: '#61dafb',
+              textDecoration: 'none',
+              fontSize: '14px'
+            }}
+          >
+            Test Routes →
+          </Link>
         </div>
       </div>
 

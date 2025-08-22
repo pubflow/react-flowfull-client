@@ -8,22 +8,26 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createServerRootRoute } from '@tanstack/react-start/server'
-
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TestRouteImport } from './routes/test'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as ProtectedRouteImport } from './routes/protected'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
-import { Route as DashboardSimpleRouteImport } from './routes/dashboard-simple'
-import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as DemoStartServerFuncsRouteImport } from './routes/demo.start.server-funcs'
-import { Route as DemoStartApiRequestRouteImport } from './routes/demo.start.api-request'
-import { ServerRoute as ApiDemoNamesServerRouteImport } from './routes/api.demo-names'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
+import { Route as TestItemIdRouteImport } from './routes/test_.$itemId'
+import { Route as DashboardProfileRouteImport } from './routes/dashboard/profile'
+import { Route as DashboardUsersIndexRouteImport } from './routes/dashboard/users/index'
+import { Route as DashboardUsers2IndexRouteImport } from './routes/dashboard/users-2/index'
+import { Route as DashboardAdminIndexRouteImport } from './routes/dashboard/admin/index'
+import { Route as DashboardUsersUserIdRouteImport } from './routes/dashboard/users.$userId'
 
-const rootServerRouteImport = createServerRootRoute()
-
+const TestRoute = TestRouteImport.update({
+  id: '/test',
+  path: '/test',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
@@ -44,142 +48,166 @@ const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
   path: '/forgot-password',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DashboardSimpleRoute = DashboardSimpleRouteImport.update({
-  id: '/dashboard-simple',
-  path: '/dashboard-simple',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
-  id: '/demo/start/server-funcs',
-  path: '/demo/start/server-funcs',
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/dashboard/',
+  path: '/dashboard/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DemoStartApiRequestRoute = DemoStartApiRequestRouteImport.update({
-  id: '/demo/start/api-request',
-  path: '/demo/start/api-request',
+const TestItemIdRoute = TestItemIdRouteImport.update({
+  id: '/test_/$itemId',
+  path: '/test/$itemId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiDemoNamesServerRoute = ApiDemoNamesServerRouteImport.update({
-  id: '/api/demo-names',
-  path: '/api/demo-names',
-  getParentRoute: () => rootServerRouteImport,
+const DashboardProfileRoute = DashboardProfileRouteImport.update({
+  id: '/dashboard/profile',
+  path: '/dashboard/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardUsersIndexRoute = DashboardUsersIndexRouteImport.update({
+  id: '/dashboard/users/',
+  path: '/dashboard/users/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardUsers2IndexRoute = DashboardUsers2IndexRouteImport.update({
+  id: '/dashboard/users-2/',
+  path: '/dashboard/users-2/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardAdminIndexRoute = DashboardAdminIndexRouteImport.update({
+  id: '/dashboard/admin/',
+  path: '/dashboard/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardUsersUserIdRoute = DashboardUsersUserIdRouteImport.update({
+  id: '/dashboard/users/$userId',
+  path: '/dashboard/users/$userId',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRoute
-  '/dashboard-simple': typeof DashboardSimpleRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/protected': typeof ProtectedRoute
   '/register': typeof RegisterRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/test': typeof TestRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/test/$itemId': typeof TestItemIdRoute
+  '/dashboard': typeof DashboardIndexRoute
+  '/dashboard/users/$userId': typeof DashboardUsersUserIdRoute
+  '/dashboard/admin': typeof DashboardAdminIndexRoute
+  '/dashboard/users-2': typeof DashboardUsers2IndexRoute
+  '/dashboard/users': typeof DashboardUsersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRoute
-  '/dashboard-simple': typeof DashboardSimpleRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/protected': typeof ProtectedRoute
   '/register': typeof RegisterRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/test': typeof TestRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/test/$itemId': typeof TestItemIdRoute
+  '/dashboard': typeof DashboardIndexRoute
+  '/dashboard/users/$userId': typeof DashboardUsersUserIdRoute
+  '/dashboard/admin': typeof DashboardAdminIndexRoute
+  '/dashboard/users-2': typeof DashboardUsers2IndexRoute
+  '/dashboard/users': typeof DashboardUsersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRoute
-  '/dashboard-simple': typeof DashboardSimpleRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/protected': typeof ProtectedRoute
   '/register': typeof RegisterRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/test': typeof TestRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/test_/$itemId': typeof TestItemIdRoute
+  '/dashboard/': typeof DashboardIndexRoute
+  '/dashboard/users/$userId': typeof DashboardUsersUserIdRoute
+  '/dashboard/admin/': typeof DashboardAdminIndexRoute
+  '/dashboard/users-2/': typeof DashboardUsers2IndexRoute
+  '/dashboard/users/': typeof DashboardUsersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/dashboard'
-    | '/dashboard-simple'
     | '/forgot-password'
     | '/login'
     | '/protected'
     | '/register'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
+    | '/test'
+    | '/dashboard/profile'
+    | '/test/$itemId'
+    | '/dashboard'
+    | '/dashboard/users/$userId'
+    | '/dashboard/admin'
+    | '/dashboard/users-2'
+    | '/dashboard/users'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/dashboard'
-    | '/dashboard-simple'
     | '/forgot-password'
     | '/login'
     | '/protected'
     | '/register'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
+    | '/test'
+    | '/dashboard/profile'
+    | '/test/$itemId'
+    | '/dashboard'
+    | '/dashboard/users/$userId'
+    | '/dashboard/admin'
+    | '/dashboard/users-2'
+    | '/dashboard/users'
   id:
     | '__root__'
     | '/'
-    | '/dashboard'
-    | '/dashboard-simple'
     | '/forgot-password'
     | '/login'
     | '/protected'
     | '/register'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
+    | '/test'
+    | '/dashboard/profile'
+    | '/test_/$itemId'
+    | '/dashboard/'
+    | '/dashboard/users/$userId'
+    | '/dashboard/admin/'
+    | '/dashboard/users-2/'
+    | '/dashboard/users/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DashboardRoute: typeof DashboardRoute
-  DashboardSimpleRoute: typeof DashboardSimpleRoute
   ForgotPasswordRoute: typeof ForgotPasswordRoute
   LoginRoute: typeof LoginRoute
   ProtectedRoute: typeof ProtectedRoute
   RegisterRoute: typeof RegisterRoute
-  DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
-  DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
-}
-export interface FileServerRoutesByFullPath {
-  '/api/demo-names': typeof ApiDemoNamesServerRoute
-}
-export interface FileServerRoutesByTo {
-  '/api/demo-names': typeof ApiDemoNamesServerRoute
-}
-export interface FileServerRoutesById {
-  __root__: typeof rootServerRouteImport
-  '/api/demo-names': typeof ApiDemoNamesServerRoute
-}
-export interface FileServerRouteTypes {
-  fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths: '/api/demo-names'
-  fileServerRoutesByTo: FileServerRoutesByTo
-  to: '/api/demo-names'
-  id: '__root__' | '/api/demo-names'
-  fileServerRoutesById: FileServerRoutesById
-}
-export interface RootServerRouteChildren {
-  ApiDemoNamesServerRoute: typeof ApiDemoNamesServerRoute
+  TestRoute: typeof TestRoute
+  DashboardProfileRoute: typeof DashboardProfileRoute
+  TestItemIdRoute: typeof TestItemIdRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
+  DashboardUsersUserIdRoute: typeof DashboardUsersUserIdRoute
+  DashboardAdminIndexRoute: typeof DashboardAdminIndexRoute
+  DashboardUsers2IndexRoute: typeof DashboardUsers2IndexRoute
+  DashboardUsersIndexRoute: typeof DashboardUsersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/test': {
+      id: '/test'
+      path: '/test'
+      fullPath: '/test'
+      preLoaderRoute: typeof TestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/register': {
       id: '/register'
       path: '/register'
@@ -208,20 +236,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard-simple': {
-      id: '/dashboard-simple'
-      path: '/dashboard-simple'
-      fullPath: '/dashboard-simple'
-      preLoaderRoute: typeof DashboardSimpleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -229,51 +243,73 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/demo/start/server-funcs': {
-      id: '/demo/start/server-funcs'
-      path: '/demo/start/server-funcs'
-      fullPath: '/demo/start/server-funcs'
-      preLoaderRoute: typeof DemoStartServerFuncsRouteImport
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/demo/start/api-request': {
-      id: '/demo/start/api-request'
-      path: '/demo/start/api-request'
-      fullPath: '/demo/start/api-request'
-      preLoaderRoute: typeof DemoStartApiRequestRouteImport
+    '/test_/$itemId': {
+      id: '/test_/$itemId'
+      path: '/test/$itemId'
+      fullPath: '/test/$itemId'
+      preLoaderRoute: typeof TestItemIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-  }
-}
-declare module '@tanstack/react-start/server' {
-  interface ServerFileRoutesByPath {
-    '/api/demo-names': {
-      id: '/api/demo-names'
-      path: '/api/demo-names'
-      fullPath: '/api/demo-names'
-      preLoaderRoute: typeof ApiDemoNamesServerRouteImport
-      parentRoute: typeof rootServerRouteImport
+    '/dashboard/profile': {
+      id: '/dashboard/profile'
+      path: '/dashboard/profile'
+      fullPath: '/dashboard/profile'
+      preLoaderRoute: typeof DashboardProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/users/': {
+      id: '/dashboard/users/'
+      path: '/dashboard/users'
+      fullPath: '/dashboard/users'
+      preLoaderRoute: typeof DashboardUsersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/users-2/': {
+      id: '/dashboard/users-2/'
+      path: '/dashboard/users-2'
+      fullPath: '/dashboard/users-2'
+      preLoaderRoute: typeof DashboardUsers2IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/admin/': {
+      id: '/dashboard/admin/'
+      path: '/dashboard/admin'
+      fullPath: '/dashboard/admin'
+      preLoaderRoute: typeof DashboardAdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/users/$userId': {
+      id: '/dashboard/users/$userId'
+      path: '/dashboard/users/$userId'
+      fullPath: '/dashboard/users/$userId'
+      preLoaderRoute: typeof DashboardUsersUserIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DashboardRoute: DashboardRoute,
-  DashboardSimpleRoute: DashboardSimpleRoute,
   ForgotPasswordRoute: ForgotPasswordRoute,
   LoginRoute: LoginRoute,
   ProtectedRoute: ProtectedRoute,
   RegisterRoute: RegisterRoute,
-  DemoStartApiRequestRoute: DemoStartApiRequestRoute,
-  DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
+  TestRoute: TestRoute,
+  DashboardProfileRoute: DashboardProfileRoute,
+  TestItemIdRoute: TestItemIdRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
+  DashboardUsersUserIdRoute: DashboardUsersUserIdRoute,
+  DashboardAdminIndexRoute: DashboardAdminIndexRoute,
+  DashboardUsers2IndexRoute: DashboardUsers2IndexRoute,
+  DashboardUsersIndexRoute: DashboardUsersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-const rootServerRouteChildren: RootServerRouteChildren = {
-  ApiDemoNamesServerRoute: ApiDemoNamesServerRoute,
-}
-export const serverRouteTree = rootServerRouteImport
-  ._addFileChildren(rootServerRouteChildren)
-  ._addFileTypes<FileServerRouteTypes>()

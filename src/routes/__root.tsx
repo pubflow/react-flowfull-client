@@ -1,9 +1,9 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanstackDevtools } from '@tanstack/react-devtools'
-import { PubflowProvider, ThemeProvider } from '@pubflow/react'
+import { PubflowProvider, ThemeProvider as PubflowThemeProvider } from '@pubflow/react'
+import { ThemeProvider } from '../components/theme-provider'
 
-import Header from '../components/Header'
 import { PUBFLOW_CONFIG } from '../lib/pubflow-config'
 
 import appCss from '../styles.css?url'
@@ -58,15 +58,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             logo: PUBFLOW_CONFIG.APP_LOGO
           }}
         >
-          <ThemeProvider
-            theme={{
-              primaryColor: PUBFLOW_CONFIG.PRIMARY_COLOR,
-              secondaryColor: PUBFLOW_CONFIG.SECONDARY_COLOR,
-              appName: PUBFLOW_CONFIG.APP_NAME,
-              logo: PUBFLOW_CONFIG.APP_LOGO
-            }}
-          >
-            <Header />
+          <ThemeProvider defaultTheme="system" storageKey="flowfull-theme">
             {children}
           </ThemeProvider>
         </PubflowProvider>
