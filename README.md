@@ -2,14 +2,23 @@
 
 This is a [TanStack Start](https://tanstack.com/start) project integrated with the enhanced Pubflow React framework, providing a complete authentication system with professional UI components.
 
-## Features
+## 📚 Documentation
 
-- **Complete Authentication System**: Login, registration, password reset with professional UI
-- **Dynamic Theming**: Environment variable-based styling and branding
-- **Offline Support**: Network status detection and offline indicators
-- **Protected Routes**: Automatic authentication checks and redirects
-- **Advanced Components**: BridgeList, AdvancedFilter, and other data management components
-- **Debug Tools**: Development utilities for debugging authentication and API calls
+- **Flowless (Authentication Backend)**: [https://flowless.dev/](https://flowless.dev/)
+- **Flowfull Client Libraries**: [https://clients.flowfull.dev/](https://clients.flowfull.dev/)
+- **Bridge Payments**: [https://bridgepayments.dev/](https://bridgepayments.dev/)
+
+## ✨ Features
+
+- ✅ **@pubflow/core** v0.4.0 - Core functionality with Bridge Payments support
+- ✅ **@pubflow/react** v0.4.1 - React adapter with TanStack integration
+- ✅ **Complete Authentication System**: Login, registration, password reset with professional UI
+- ✅ **Bridge Payments**: Payment processing with Stripe, PayPal, and more
+- ✅ **Dynamic Theming**: Environment variable-based styling and branding
+- ✅ **Offline Support**: Network status detection and offline indicators
+- ✅ **Protected Routes**: Automatic authentication checks and redirects
+- ✅ **Advanced Components**: BridgeList, AdvancedFilter, and other data management components
+- ✅ **Debug Tools**: Development utilities for debugging authentication and API calls
 
 ## Getting Started
 
