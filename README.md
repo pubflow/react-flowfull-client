@@ -1,4 +1,4 @@
-# Flowfull Client - TanStack Start with Pubflow
+# React Flowfull Client - TanStack Start with Pubflow
 
 This is a [TanStack Start](https://tanstack.com/start) project integrated with the enhanced Pubflow React framework, providing a complete authentication system with professional UI components.
 

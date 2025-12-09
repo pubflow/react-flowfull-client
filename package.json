@@ -1,8 +1,8 @@
 {
-  "name": "create-flowfull-client",
+  "name": "react-flowfull-client",
   "private": true,
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "scripts": {
     "dev": "vite dev --port 3000",
     "start": "node .output/server/index.mjs",
