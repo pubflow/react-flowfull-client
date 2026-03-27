@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
-    "@pubflow/core": "^0.4.0",
-    "@pubflow/react": "^0.4.1",
+    "@pubflow/core": "^0.4.6",
+    "@pubflow/react": "^0.4.14",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dialog": "^1.1.15",
