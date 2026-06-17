@@ -2,7 +2,7 @@
   "name": "react-flowfull-client",
   "private": true,
   "type": "module",
-  "version": "0.4.0",
+  "version": "0.4.5",
   "scripts": {
     "dev": "vite dev --port 3000",
     "start": "node .output/server/index.mjs",
@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
-    "@pubflow/core": "^0.4.6",
-    "@pubflow/react": "^0.4.14",
+    "@pubflow/core": "^0.4.7",
+    "@pubflow/react": "^0.4.15",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dialog": "^1.1.15",
