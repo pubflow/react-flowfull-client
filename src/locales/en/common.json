@@ -1,0 +1,98 @@
+{
+  "app": {
+    "tagline": "A clean Pubflow client starter",
+    "connectedTo": "Connected to Flowless"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "login": "Sign in",
+    "logout": "Sign out",
+    "account": "Account"
+  },
+  "login": {
+    "title": "Welcome back",
+    "subtitle": "Use your Flowless account. Two-factor verification appears when your instance requires it.",
+    "sideTitle": "Sign in to continue.",
+    "sideCopy": "Auth, sessions, protected pages, theme, language, and client calls are wired for you."
+  },
+  "register": {
+    "eyebrow": "Create account",
+    "title": "Create your account.",
+    "subtitle": "Use the starter account flow, then customize it for your app.",
+    "success": "Account created successfully. Please sign in with your new credentials."
+  },
+  "passwordReset": {
+    "eyebrow": "Account recovery",
+    "title": "Recover access securely.",
+    "subtitle": "Request a password reset link and return when your email arrives.",
+    "resetTitle": "Choose a new password.",
+    "resetSubtitle": "Set a fresh password to finish recovering your account.",
+    "success": "Password reset successful. Please sign in with your new password."
+  },
+  "auth": {
+    "backToLogin": "Back to sign in"
+  },
+  "home": {
+    "preparing": "Preparing your workspace...",
+    "checking": "Checking your session and routing you to the right place."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "A clean starting point for your app backend and user session.",
+    "welcome": "Welcome",
+    "signedIn": "Signed in",
+    "apiBase": "API base",
+    "bridge": "Bridge",
+    "auth": "Auth",
+    "theme": "Theme",
+    "userData": "User data",
+    "modules": "Instance modules can extend this user payload. The starter keeps it available from useAuth().",
+    "cards": {
+      "auth": "Authentication",
+      "authText": "Session state and 2FA are handled by @pubflow/react.",
+      "experience": "Polished experience",
+      "experienceText": "Branding, language, and light or dark mode are ready from the first screen.",
+      "deploy": "Portable deploy",
+      "deployText": "Use TanStack Start for Node/Bun, Cloudflare, and Deno-friendly deployment paths."
+    }
+  },
+  "actions": {
+    "openDashboard": "Open dashboard",
+    "goLogin": "Go to sign in",
+    "retry": "Retry",
+    "refresh": "Refresh"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "english": "English",
+    "spanish": "Spanish",
+    "label": "Language"
+  },
+  "status": {
+    "loading": "Loading",
+    "protected": "Protected page",
+    "redirecting": "Redirecting",
+    "active": "Active",
+    "pending": "Pending"
+  },
+  "user": {
+    "id": "ID",
+    "email": "Email",
+    "type": "Type",
+    "language": "Language",
+    "notAvailable": "Not available"
+  },
+  "profile": {
+    "title": "Profile",
+    "subtitle": "Your current session identity and account data.",
+    "account": "Account",
+    "details": "Details from the active Pubflow session.",
+    "raw": "Raw profile payload"
+  }
+}

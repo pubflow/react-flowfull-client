@@ -9,34 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TestRouteImport } from './routes/test'
 import { Route as RegisterRouteImport } from './routes/register'
-import { Route as ProtectedRouteImport } from './routes/protected'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
-import { Route as TestItemIdRouteImport } from './routes/test_.$itemId'
 import { Route as DashboardProfileRouteImport } from './routes/dashboard/profile'
-import { Route as DashboardUsersIndexRouteImport } from './routes/dashboard/users/index'
-import { Route as DashboardUsers2IndexRouteImport } from './routes/dashboard/users-2/index'
-import { Route as DashboardAdminIndexRouteImport } from './routes/dashboard/admin/index'
-import { Route as DashboardUsersUserIdRouteImport } from './routes/dashboard/users.$userId'
-import { Route as DashboardUsersUsersUserIdRouteImport } from './routes/dashboard/users/users.$userId'
 
-const TestRoute = TestRouteImport.update({
-  id: '/test',
-  path: '/test',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProtectedRoute = ProtectedRouteImport.update({
-  id: '/protected',
-  path: '/protected',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -59,91 +41,36 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   path: '/dashboard/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TestItemIdRoute = TestItemIdRouteImport.update({
-  id: '/test_/$itemId',
-  path: '/test/$itemId',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DashboardProfileRoute = DashboardProfileRouteImport.update({
   id: '/dashboard/profile',
   path: '/dashboard/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DashboardUsersIndexRoute = DashboardUsersIndexRouteImport.update({
-  id: '/dashboard/users/',
-  path: '/dashboard/users/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardUsers2IndexRoute = DashboardUsers2IndexRouteImport.update({
-  id: '/dashboard/users-2/',
-  path: '/dashboard/users-2/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardAdminIndexRoute = DashboardAdminIndexRouteImport.update({
-  id: '/dashboard/admin/',
-  path: '/dashboard/admin/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardUsersUserIdRoute = DashboardUsersUserIdRouteImport.update({
-  id: '/dashboard/users/$userId',
-  path: '/dashboard/users/$userId',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardUsersUsersUserIdRoute =
-  DashboardUsersUsersUserIdRouteImport.update({
-    id: '/dashboard/users/users/$userId',
-    path: '/dashboard/users/users/$userId',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
-  '/protected': typeof ProtectedRoute
   '/register': typeof RegisterRoute
-  '/test': typeof TestRoute
   '/dashboard/profile': typeof DashboardProfileRoute
-  '/test/$itemId': typeof TestItemIdRoute
-  '/dashboard': typeof DashboardIndexRoute
-  '/dashboard/users/$userId': typeof DashboardUsersUserIdRoute
-  '/dashboard/admin': typeof DashboardAdminIndexRoute
-  '/dashboard/users-2': typeof DashboardUsers2IndexRoute
-  '/dashboard/users': typeof DashboardUsersIndexRoute
-  '/dashboard/users/users/$userId': typeof DashboardUsersUsersUserIdRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
-  '/protected': typeof ProtectedRoute
   '/register': typeof RegisterRoute
-  '/test': typeof TestRoute
   '/dashboard/profile': typeof DashboardProfileRoute
-  '/test/$itemId': typeof TestItemIdRoute
   '/dashboard': typeof DashboardIndexRoute
-  '/dashboard/users/$userId': typeof DashboardUsersUserIdRoute
-  '/dashboard/admin': typeof DashboardAdminIndexRoute
-  '/dashboard/users-2': typeof DashboardUsers2IndexRoute
-  '/dashboard/users': typeof DashboardUsersIndexRoute
-  '/dashboard/users/users/$userId': typeof DashboardUsersUsersUserIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
-  '/protected': typeof ProtectedRoute
   '/register': typeof RegisterRoute
-  '/test': typeof TestRoute
   '/dashboard/profile': typeof DashboardProfileRoute
-  '/test_/$itemId': typeof TestItemIdRoute
   '/dashboard/': typeof DashboardIndexRoute
-  '/dashboard/users/$userId': typeof DashboardUsersUserIdRoute
-  '/dashboard/admin/': typeof DashboardAdminIndexRoute
-  '/dashboard/users-2/': typeof DashboardUsers2IndexRoute
-  '/dashboard/users/': typeof DashboardUsersIndexRoute
-  '/dashboard/users/users/$userId': typeof DashboardUsersUsersUserIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,89 +78,43 @@ export interface FileRouteTypes {
     | '/'
     | '/forgot-password'
     | '/login'
-    | '/protected'
     | '/register'
-    | '/test'
     | '/dashboard/profile'
-    | '/test/$itemId'
-    | '/dashboard'
-    | '/dashboard/users/$userId'
-    | '/dashboard/admin'
-    | '/dashboard/users-2'
-    | '/dashboard/users'
-    | '/dashboard/users/users/$userId'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/forgot-password'
     | '/login'
-    | '/protected'
     | '/register'
-    | '/test'
     | '/dashboard/profile'
-    | '/test/$itemId'
     | '/dashboard'
-    | '/dashboard/users/$userId'
-    | '/dashboard/admin'
-    | '/dashboard/users-2'
-    | '/dashboard/users'
-    | '/dashboard/users/users/$userId'
   id:
     | '__root__'
     | '/'
     | '/forgot-password'
     | '/login'
-    | '/protected'
     | '/register'
-    | '/test'
     | '/dashboard/profile'
-    | '/test_/$itemId'
     | '/dashboard/'
-    | '/dashboard/users/$userId'
-    | '/dashboard/admin/'
-    | '/dashboard/users-2/'
-    | '/dashboard/users/'
-    | '/dashboard/users/users/$userId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ForgotPasswordRoute: typeof ForgotPasswordRoute
   LoginRoute: typeof LoginRoute
-  ProtectedRoute: typeof ProtectedRoute
   RegisterRoute: typeof RegisterRoute
-  TestRoute: typeof TestRoute
   DashboardProfileRoute: typeof DashboardProfileRoute
-  TestItemIdRoute: typeof TestItemIdRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
-  DashboardUsersUserIdRoute: typeof DashboardUsersUserIdRoute
-  DashboardAdminIndexRoute: typeof DashboardAdminIndexRoute
-  DashboardUsers2IndexRoute: typeof DashboardUsers2IndexRoute
-  DashboardUsersIndexRoute: typeof DashboardUsersIndexRoute
-  DashboardUsersUsersUserIdRoute: typeof DashboardUsersUsersUserIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/test': {
-      id: '/test'
-      path: '/test'
-      fullPath: '/test'
-      preLoaderRoute: typeof TestRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/register': {
       id: '/register'
       path: '/register'
       fullPath: '/register'
       preLoaderRoute: typeof RegisterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/protected': {
-      id: '/protected'
-      path: '/protected'
-      fullPath: '/protected'
-      preLoaderRoute: typeof ProtectedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -260,15 +141,8 @@ declare module '@tanstack/react-router' {
     '/dashboard/': {
       id: '/dashboard/'
       path: '/dashboard'
-      fullPath: '/dashboard'
+      fullPath: '/dashboard/'
       preLoaderRoute: typeof DashboardIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/test_/$itemId': {
-      id: '/test_/$itemId'
-      path: '/test/$itemId'
-      fullPath: '/test/$itemId'
-      preLoaderRoute: typeof TestItemIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard/profile': {
@@ -278,41 +152,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard/users/': {
-      id: '/dashboard/users/'
-      path: '/dashboard/users'
-      fullPath: '/dashboard/users'
-      preLoaderRoute: typeof DashboardUsersIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard/users-2/': {
-      id: '/dashboard/users-2/'
-      path: '/dashboard/users-2'
-      fullPath: '/dashboard/users-2'
-      preLoaderRoute: typeof DashboardUsers2IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard/admin/': {
-      id: '/dashboard/admin/'
-      path: '/dashboard/admin'
-      fullPath: '/dashboard/admin'
-      preLoaderRoute: typeof DashboardAdminIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard/users/$userId': {
-      id: '/dashboard/users/$userId'
-      path: '/dashboard/users/$userId'
-      fullPath: '/dashboard/users/$userId'
-      preLoaderRoute: typeof DashboardUsersUserIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard/users/users/$userId': {
-      id: '/dashboard/users/users/$userId'
-      path: '/dashboard/users/users/$userId'
-      fullPath: '/dashboard/users/users/$userId'
-      preLoaderRoute: typeof DashboardUsersUsersUserIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -320,18 +159,19 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ForgotPasswordRoute: ForgotPasswordRoute,
   LoginRoute: LoginRoute,
-  ProtectedRoute: ProtectedRoute,
   RegisterRoute: RegisterRoute,
-  TestRoute: TestRoute,
   DashboardProfileRoute: DashboardProfileRoute,
-  TestItemIdRoute: TestItemIdRoute,
   DashboardIndexRoute: DashboardIndexRoute,
-  DashboardUsersUserIdRoute: DashboardUsersUserIdRoute,
-  DashboardAdminIndexRoute: DashboardAdminIndexRoute,
-  DashboardUsers2IndexRoute: DashboardUsers2IndexRoute,
-  DashboardUsersIndexRoute: DashboardUsersIndexRoute,
-  DashboardUsersUsersUserIdRoute: DashboardUsersUsersUserIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "app": {
+    "tagline": "Un starter Pubflow limpio",
+    "connectedTo": "Conectado a Flowless"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "profile": "Perfil",
+    "login": "Iniciar sesion",
+    "logout": "Cerrar sesion",
+    "account": "Cuenta"
+  },
+  "login": {
+    "title": "Bienvenido de vuelta",
+    "subtitle": "Usa tu cuenta Flowless. La verificacion 2FA aparece cuando tu instancia la requiere.",
+    "sideTitle": "Inicia sesion para continuar.",
+    "sideCopy": "Auth, sesiones, paginas protegidas, tema, idioma y llamadas cliente quedan conectadas."
+  },
+  "register": {
+    "eyebrow": "Crear cuenta",
+    "title": "Crea tu cuenta.",
+    "subtitle": "Usa el flujo base del starter y luego adaptalo a tu app.",
+    "success": "Cuenta creada correctamente. Inicia sesion con tus nuevas credenciales."
+  },
+  "passwordReset": {
+    "eyebrow": "Recuperar cuenta",
+    "title": "Recupera el acceso con seguridad.",
+    "subtitle": "Solicita un enlace de recuperacion y vuelve cuando llegue tu correo.",
+    "resetTitle": "Elige una nueva contrasena.",
+    "resetSubtitle": "Define una contrasena nueva para terminar de recuperar tu cuenta.",
+    "success": "Contrasena restablecida correctamente. Inicia sesion con tu nueva contrasena."
+  },
+  "auth": {
+    "backToLogin": "Volver al login"
+  },
+  "home": {
+    "preparing": "Preparando tu workspace...",
+    "checking": "Revisando tu sesion y llevandote al lugar correcto."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Un punto de partida limpio para tu backend y sesion de usuario.",
+    "welcome": "Bienvenido",
+    "signedIn": "Sesion activa",
+    "apiBase": "API base",
+    "bridge": "Bridge",
+    "auth": "Auth",
+    "theme": "Tema",
+    "userData": "Datos del usuario",
+    "modules": "Los modulos de la instancia pueden extender este payload. El starter lo deja disponible desde useAuth().",
+    "cards": {
+      "auth": "Autenticacion",
+      "authText": "La sesion y 2FA quedan manejadas por @pubflow/react.",
+      "experience": "Experiencia pulida",
+      "experienceText": "Branding, idioma y modo claro u oscuro quedan listos desde la primera pantalla.",
+      "deploy": "Deploy portable",
+      "deployText": "Usa TanStack Start para rutas de despliegue en Node/Bun, Cloudflare y Deno."
+    }
+  },
+  "actions": {
+    "openDashboard": "Abrir dashboard",
+    "goLogin": "Ir al login",
+    "retry": "Reintentar",
+    "refresh": "Refrescar"
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema",
+    "toggle": "Cambiar tema"
+  },
+  "language": {
+    "english": "Ingles",
+    "spanish": "Espanol",
+    "label": "Idioma"
+  },
+  "status": {
+    "loading": "Cargando",
+    "protected": "Pagina protegida",
+    "redirecting": "Redirigiendo",
+    "active": "Activa",
+    "pending": "Pendiente"
+  },
+  "user": {
+    "id": "ID",
+    "email": "Email",
+    "type": "Tipo",
+    "language": "Idioma",
+    "notAvailable": "No disponible"
+  },
+  "profile": {
+    "title": "Perfil",
+    "subtitle": "Tu identidad de sesion y datos de cuenta actuales.",
+    "account": "Cuenta",
+    "details": "Detalles de la sesion activa de Pubflow.",
+    "raw": "Payload crudo del perfil"
+  }
+}

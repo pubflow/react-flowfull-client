@@ -8,5 +8,6 @@ count.txt
 .nitro
 .tanstack
 .output
+.wrangler
 .vinxi
 todos.json

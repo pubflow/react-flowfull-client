@@ -10,7 +10,7 @@ import { Navigation } from './navigation'
 
 interface DashboardLayoutProps {
   children: React.ReactNode
-  currentPage?: 'dashboard' | 'profile' | 'admin' | 'users' | 'settings'
+  currentPage?: 'dashboard' | 'profile'
   title?: string
   description?: string
   showOfflineIndicator?: boolean
@@ -33,7 +33,6 @@ export function DashboardLayout({
           {/* Navigation */}
           <Navigation currentPage={currentPage} />
           
-          {/* Page Header (if title provided) */}
           {title && (
             <div className="border-b bg-card">
               <div className="container mx-auto px-4 py-6">
