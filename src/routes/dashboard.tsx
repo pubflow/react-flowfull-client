@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { DashboardLayout, LoadingLayout } from '@/components/dashboard-layout'
 import { PUBFLOW_CONFIG } from '@/lib/pubflow-config'
 
-export const Route = createFileRoute('/dashboard/')({
+export const Route = createFileRoute('/dashboard')({
   component: DashboardPage,
 })
 

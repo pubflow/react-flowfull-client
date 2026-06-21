@@ -8,6 +8,30 @@ import { BridgeView, OfflineIndicator } from '@pubflow/react'
 import { ThemeProvider } from './theme-provider'
 import { Navigation } from './navigation'
 
+function ClientProtectedView({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="text-center space-y-4">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto" />
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <BridgeView allowedTypes={['authenticated']}>
+      {children}
+    </BridgeView>
+  )
+}
+
 interface DashboardLayoutProps {
   children: React.ReactNode
   currentPage?: 'dashboard' | 'profile'
@@ -25,7 +49,7 @@ export function DashboardLayout({
 }: DashboardLayoutProps) {
   return (
     <ThemeProvider>
-      <BridgeView allowedTypes={['authenticated']}>
+      <ClientProtectedView>
         <div className="min-h-screen bg-background">
           {/* Offline Indicator */}
           {showOfflineIndicator && <OfflineIndicator />}
@@ -51,7 +75,7 @@ export function DashboardLayout({
             {children}
           </main>
         </div>
-      </BridgeView>
+      </ClientProtectedView>
     </ThemeProvider>
   )
 }
