@@ -15,12 +15,29 @@ Clean TanStack Start client starter for Flowless and Pubflow. It keeps the defau
 ## Setup
 
 ```bash
-bun install
+npm install
 cp .env.example .env.local
-bun run dev
+npm run dev
 ```
 
 Open `http://localhost:3000`.
+
+Bun is also supported for local development:
+
+```bash
+bun install
+bun run dev
+```
+
+## Browser preview (Nodepod)
+
+When this template is opened in the Pubflow agent workspace, the in-browser preview uses **Nodepod** with `npm` and the committed **`package-lock.json`** for reproducible installs.
+
+- First preview boot can take **2–5 minutes** while dependencies install inside the browser runtime.
+- The `dev:preview` script is tuned for the workspace preview (`vite dev --host 0.0.0.0`).
+- Heavy deploy/test tooling (`wrangler`, `vitest`, etc.) is not part of the default install; use `npx` when you need those checks locally.
+
+If preview install is slow or blocked on your network, set `VITE_CODING_BROWSER_PROVIDER=webcontainer` on the console client as a fallback.
 
 ## Environment
 
@@ -44,15 +61,18 @@ VITE_PUBLIC_PATHS=/,/login,/register,/forgot-password
 ## Scripts
 
 ```bash
-bun run dev          # local Vite dev server
-bun run build        # standard production build
-bun run dev:deno     # local dev through Deno
-bun run build:deno   # Nitro-powered build path for Deno Deploy checks
-bun run build:cf     # Nitro-powered Cloudflare Worker build
-bun run check:deno   # Deno deploy check
-bun run check:cf     # Cloudflare Worker build check
-bun run test         # Vitest
+npm run dev          # local Vite dev server
+npm run dev:preview  # Vite dev server for in-browser workspace preview
+npm run build        # standard production build
+npm run dev:deno     # local dev through Deno
+npm run build:deno   # Nitro-powered build path for Deno Deploy checks
+npm run build:cf     # Nitro-powered Cloudflare Worker build
+npm run check:deno   # Deno deploy check
+npm run check:cf     # Cloudflare Worker build check
+npm run test         # Vitest (via npx)
 ```
+
+Cloudflare deploy/dev commands use `npx wrangler` so Wrangler is not required in the default dependency tree.
 
 ## Deploy
 

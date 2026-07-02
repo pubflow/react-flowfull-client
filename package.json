@@ -3,23 +3,25 @@
   "private": true,
   "type": "module",
   "version": "0.5.0",
+  "packageManager": "npm@10.9.2",
   "overrides": {
     "zod": "4.4.3"
   },
   "scripts": {
     "dev": "vite dev --port 3000",
+    "dev:preview": "vite dev --port 3000 --host 0.0.0.0",
     "start": "node .output/server/index.mjs",
     "build": "vite build",
     "dev:deno": "deno run -A npm:vite dev --port 3000",
     "build:deno": "deno run -A npm:vite build --config vite.deno.config.ts",
     "build:cf": "vite build --config vite.cloudflare.config.ts",
     "serve": "vite preview",
-    "dev:cf": "bun run build:cf && wrangler dev --config .output/server/wrangler.json",
-    "deploy:cf": "bun run build:cf && wrangler deploy --config .output/server/wrangler.json",
-    "preview:cf": "bun run build:cf && wrangler dev --config .output/server/wrangler.json --remote",
-    "test": "vitest run --passWithNoTests",
+    "dev:cf": "npm run build:cf && npx wrangler dev --config .output/server/wrangler.json",
+    "deploy:cf": "npm run build:cf && npx wrangler deploy --config .output/server/wrangler.json",
+    "preview:cf": "npm run build:cf && npx wrangler dev --config .output/server/wrangler.json --remote",
+    "test": "npx vitest run --passWithNoTests",
     "check:deno": "deno run -A npm:vite build --config vite.deno.config.ts",
-    "check:cf": "bun run build:cf"
+    "check:cf": "npm run build:cf"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
@@ -58,18 +60,12 @@
     "zod": "4.4.3"
   },
   "devDependencies": {
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/react": "^16.2.0",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "@vitejs/plugin-react": "6.0.2",
-    "jsdom": "^26.0.0",
+    "@vitejs/plugin-react": "^5.0.4",
     "nitro": "3.0.260610-beta",
-    "nitro-nightly": "3.0.1-20260619-111502-ca57c6e5",
     "typescript": "^5.7.2",
-    "vite": "8.0.16",
-    "vitest": "^3.0.5",
-    "web-vitals": "^4.2.4",
-    "wrangler": "4.101.0"
+    "vite": "^7.1.7",
+    "web-vitals": "^4.2.4"
   }
 }
