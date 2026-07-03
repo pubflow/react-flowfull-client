@@ -1,4 +1,4 @@
-// Browser preview in Pubflow uses a generated SPA Vite config (tanstackStart spa mode).
+// Browser preview in Pubflow uses a generated router-only Vite config (TanStack Router SPA).
 // Local `npm run dev` keeps full TanStack Start SSR; only the platform Nodepod preview is client-only.
 import { defineConfig } from 'vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
