@@ -273,20 +273,32 @@ code {
   z-index: 20;
 }
 
-.topbar-brand,
-.topbar-actions {
-  align-items: center;
-  display: flex;
-  gap: 10px;
-  min-width: 0;
-}
-
 .topbar-brand {
+  align-items: center;
   background: transparent;
   border: 0;
   color: inherit;
   cursor: pointer;
+  display: flex;
+  gap: 10px;
+  min-width: 0;
   padding: 0;
+}
+
+.topbar-nav {
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.topbar-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-left: auto;
+  min-width: 0;
 }
 
 .segmented-control {
@@ -668,7 +680,12 @@ code {
 }
 
 @media (max-width: 640px) {
-  .topbar,
+  .topbar {
+    gap: 10px;
+    min-height: 58px;
+    padding: 10px 16px;
+  }
+
   .dashboard-hero {
     align-items: flex-start;
     flex-direction: column;
@@ -676,14 +693,6 @@ code {
 
   .login-toolbar {
     align-items: center;
-  }
-
-  .topbar {
-    padding: 14px 18px;
-  }
-
-  .topbar-actions {
-    flex-wrap: wrap;
   }
 
   .dashboard-hero,

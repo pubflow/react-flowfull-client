@@ -45,13 +45,13 @@ export function Navigation({ currentPage = 'dashboard' }: NavigationProps) {
         <AppLogo />
       </button>
 
-      <nav className="hidden md:flex items-center gap-2">
+      <nav className="topbar-nav hidden md:flex">
         {navigationItems.map((item) => (
           <Button
             key={item.href}
             variant={item.active ? 'default' : 'ghost'}
             size="sm"
-            onClick={() => navigate({ to: item.href as any })}
+            onClick={() => navigate({ to: item.href as '/dashboard' | '/dashboard/profile' })}
           >
             <item.icon className="h-4 w-4" />
             <span>{item.label}</span>
@@ -59,33 +59,28 @@ export function Navigation({ currentPage = 'dashboard' }: NavigationProps) {
         ))}
       </nav>
 
-      <div className="hidden md:flex topbar-actions">
+      <div className="topbar-actions">
         <ThemeToggle />
         <LanguageToggle />
-        <Button type="button" variant="outline" onClick={handleLogout}>
+        <Button type="button" variant="outline" className="hidden md:inline-flex" onClick={handleLogout}>
           <LogOut className="h-4 w-4" />
           <span>{t('nav.logout')}</span>
         </Button>
-      </div>
-
-      <div className="md:hidden flex items-center gap-2">
-        <ThemeToggle />
-        <LanguageToggle />
         <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" aria-label={t('nav.dashboard')}>
+            <Button variant="ghost" size="icon" className="md:hidden" aria-label={t('nav.dashboard')}>
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-80">
-            <div className="flex flex-col gap-3 mt-8">
+            <div className="mt-8 flex flex-col gap-3">
               {navigationItems.map((item) => (
                 <Button
                   key={item.href}
                   variant={item.active ? 'default' : 'ghost'}
                   className="justify-start"
                   onClick={() => {
-                    navigate({ to: item.href as any })
+                    navigate({ to: item.href as '/dashboard' | '/dashboard/profile' })
                     setIsMobileMenuOpen(false)
                   }}
                 >
@@ -93,7 +88,7 @@ export function Navigation({ currentPage = 'dashboard' }: NavigationProps) {
                   {item.label}
                 </Button>
               ))}
-              <Button type="button" variant="outline" className="justify-start" onClick={handleLogout}>
+              <Button type="button" variant="outline" className="justify-start md:hidden" onClick={handleLogout}>
                 <LogOut className="h-4 w-4" />
                 {t('nav.logout')}
               </Button>
