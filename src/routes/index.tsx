@@ -4,6 +4,8 @@ import { Loader2 } from 'lucide-react'
 import { useAuth } from '@pubflow/react'
 import { useTranslation } from 'react-i18next'
 import { Card } from '@/components/ui/card'
+import { PreviewWelcome } from '@/components/preview-welcome'
+import { PUBFLOW_CONFIG } from '@/lib/pubflow-config'
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -15,10 +17,14 @@ function App() {
   const { isAuthenticated, isLoading } = useAuth()
 
   useEffect(() => {
-    if (!isLoading) {
+    if (!PUBFLOW_CONFIG.PREVIEW_MODE && !isLoading) {
       navigate({ to: isAuthenticated ? '/dashboard' : '/login' })
     }
   }, [isAuthenticated, isLoading, navigate])
+
+  if (PUBFLOW_CONFIG.PREVIEW_MODE) {
+    return <PreviewWelcome />
+  }
 
   return (
     <main className="center-screen">

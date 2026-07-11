@@ -53,8 +53,10 @@ function ProfilePage() {
             <CardTitle>{t('profile.raw')}</CardTitle>
             <CardDescription>{t('dashboard.modules')}</CardDescription>
           </CardHeader>
-          <CardContent>
-            <pre className="json-panel">{JSON.stringify(user || {}, null, 2)}</pre>
+          <CardContent className="min-w-0">
+            <div className="json-scrollport">
+              <pre className="json-panel">{JSON.stringify(user || {}, null, 2)}</pre>
+            </div>
           </CardContent>
         </Card>
       </section>

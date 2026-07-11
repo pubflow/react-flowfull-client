@@ -37,6 +37,18 @@
     "preparing": "Preparing your workspace...",
     "checking": "Checking your session and routing you to the right place."
   },
+  "preview": {
+    "eyebrow": "Coding preview",
+    "title": "Welcome to your Pubflow App",
+    "subtitle": "This friendly preview starts here so you can edit confidently. Your login, dashboard, auth bridge, theme, and Deno-friendly deploy scripts are still ready.",
+    "editTitle": "Start customizing",
+    "editSubtitle": "Ask ZenoCode to change the copy, layout, colors, auth flow, or dashboard modules.",
+    "steps": {
+      "home": "Edit src/routes/index.tsx to change this first screen.",
+      "auth": "Open /login to test the Flowless authentication flow.",
+      "config": "Update src/lib/pubflow-config.ts or environment variables for branding and API URLs."
+    }
+  },
   "dashboard": {
     "title": "Dashboard",
     "subtitle": "A clean starting point for your app backend and user session.",

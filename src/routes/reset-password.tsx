@@ -5,17 +5,17 @@ import { useTranslation } from 'react-i18next'
 import { AuthPageShell } from '@/components/auth-page-shell'
 import { CustomPasswordResetForm } from '@/components/pubflow-auth-forms'
 
-export const Route = createFileRoute('/forgot-password')({
-  component: ForgotPasswordPage,
+export const Route = createFileRoute('/reset-password')({
+  component: ResetPasswordPage,
   validateSearch: (search: Record<string, unknown>) => ({
     token: (search.token as string) || undefined,
   }),
 })
 
-function ForgotPasswordPage() {
+function ResetPasswordPage() {
   const navigate = useNavigate()
   const { t } = useTranslation()
-  const { token } = useSearch({ from: '/forgot-password' })
+  const { token } = useSearch({ from: '/reset-password' })
 
   return (
     <>

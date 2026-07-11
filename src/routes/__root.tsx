@@ -27,6 +27,15 @@ export const Route = createRootRoute({
         rel: 'stylesheet',
         href: appCss,
       },
+      {
+        rel: 'icon',
+        href: '/Pubflow-Favicon.png',
+        type: 'image/png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        href: '/Pubflow-Favicon.png',
+      },
     ],
   }),
 

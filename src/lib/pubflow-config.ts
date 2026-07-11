@@ -4,6 +4,17 @@
  * Environment-based configuration for the Pubflow framework
  */
 
+function isEnabled(value?: string): boolean {
+  return /^(true|1|yes|on)$/i.test(String(value || '').trim().replace(/^['"]|['"]$/g, ''))
+}
+
+function parseList(value?: string): string[] {
+  return String(value || '')
+    .split(',')
+    .map((item: string) => item.trim().replace(/^['"]|['"]$/g, '').toLowerCase())
+    .filter(Boolean)
+}
+
 // Environment variables with fallbacks
 export const PUBFLOW_CONFIG = {
   // API Configuration
@@ -23,9 +34,11 @@ export const PUBFLOW_CONFIG = {
   
   // Authentication Configuration
   LOGIN_REDIRECT_PATH: import.meta.env.VITE_LOGIN_REDIRECT_PATH || '/login',
-  PUBLIC_PATHS: import.meta.env.VITE_PUBLIC_PATHS || '/login,/register,/forgot-password,/',
+  PUBLIC_PATHS: import.meta.env.VITE_PUBLIC_PATHS || '/login,/register,/forgot-password,/reset-password,/',
   ENABLE_ACCOUNT_CREATION: import.meta.env.VITE_ENABLE_ACCOUNT_CREATION !== 'false',
   ENABLE_PASSWORD_RESET: import.meta.env.VITE_ENABLE_PASSWORD_RESET !== 'false',
+  LOGIN_PROVIDERS: parseList(import.meta.env.VITE_LOGIN_PROVIDERS),
+  SOCIAL_AUTH_BASE_URL: import.meta.env.VITE_SOCIAL_AUTH_BASE_URL || '',
   
   // Debug Configuration
   ENABLE_DEBUG_TOOLS: import.meta.env.VITE_ENABLE_DEBUG_TOOLS === 'true',
@@ -34,8 +47,27 @@ export const PUBFLOW_CONFIG = {
   SHOW_SESSION_ALERTS: import.meta.env.VITE_SHOW_SESSION_ALERTS === 'true',
   
   // Cache Configuration
-  ENABLE_PERSISTENT_CACHE: import.meta.env.VITE_ENABLE_PERSISTENT_CACHE === 'true'
+  ENABLE_PERSISTENT_CACHE: import.meta.env.VITE_ENABLE_PERSISTENT_CACHE === 'true',
+
+  // Coding Agent / browser preview
+  PREVIEW_MODE:
+    isEnabled(import.meta.env.VITE_PREVIEW_MODE) ||
+    isEnabled(import.meta.env.VITE_PUBFLOW_WEB_PREVIEW)
 };
+
+export function buildSocialLoginUrl(provider: string, redirectPath = '/dashboard'): string {
+  const base = (
+    PUBFLOW_CONFIG.SOCIAL_AUTH_BASE_URL ||
+    `${PUBFLOW_CONFIG.API_BASE_URL.replace(/\/$/, '')}${PUBFLOW_CONFIG.AUTH_BASE_PATH}/social`
+  ).replace(/\/$/, '')
+
+  const url = new URL(`${base}/${encodeURIComponent(provider)}`)
+  if (typeof window !== 'undefined') {
+    url.searchParams.set('redirect', `${window.location.origin}${redirectPath}`)
+  }
+  url.searchParams.set('redirect_path', redirectPath)
+  return url.toString()
+}
 
 /**
  * Build API URL helper

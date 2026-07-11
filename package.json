@@ -2,7 +2,7 @@
   "name": "react-flowfull-client",
   "private": true,
   "type": "module",
-  "version": "0.5.0",
+  "version": "0.5.5",
   "packageManager": "npm@10.9.2",
   "overrides": {
     "zod": "4.4.3"
