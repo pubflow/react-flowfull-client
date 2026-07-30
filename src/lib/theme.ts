@@ -67,8 +67,10 @@ function getEnvVar(key: string, fallback: string): string {
            import.meta.env?.[key] || 
            fallback;
   }
-  // Server-side: check process.env
-  return process.env[key] || fallback;
+  // Server-side and browser-hosted previews: read a process shim only when
+  // the current runtime actually provides one. Client-only preview builds do
+  // not expose Node globals.
+  return (globalThis as any).process?.env?.[key] || fallback;
 }
 
 /**
