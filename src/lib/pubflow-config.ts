@@ -4,10 +4,6 @@
  * Environment-based configuration for the Pubflow framework
  */
 
-function isEnabled(value?: string): boolean {
-  return /^(true|1|yes|on)$/i.test(String(value || '').trim().replace(/^['"]|['"]$/g, ''))
-}
-
 function parseList(value?: string): string[] {
   return String(value || '')
     .split(',')
@@ -48,11 +44,6 @@ export const PUBFLOW_CONFIG = {
   
   // Cache Configuration
   ENABLE_PERSISTENT_CACHE: import.meta.env.VITE_ENABLE_PERSISTENT_CACHE === 'true',
-
-  // Coding Agent / browser preview
-  PREVIEW_MODE:
-    isEnabled(import.meta.env.VITE_PREVIEW_MODE) ||
-    isEnabled(import.meta.env.VITE_PUBFLOW_WEB_PREVIEW)
 };
 
 export function buildSocialLoginUrl(provider: string, redirectPath = '/dashboard'): string {

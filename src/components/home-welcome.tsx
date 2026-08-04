@@ -5,22 +5,22 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
-export function PreviewWelcome() {
+export function HomeWelcome() {
   const { t } = useTranslation()
 
   return (
-    <main className="preview-welcome-shell">
-      <section className="preview-welcome-hero">
-        <div className="preview-welcome-logo" aria-hidden="true">
+    <main className="home-welcome-shell">
+      <section className="home-welcome-hero">
+        <div className="home-welcome-logo" aria-hidden="true">
           <img src="/Pubflow-Favicon.png" alt="" />
         </div>
         <Badge variant="secondary" className="eyebrow-badge">
           <Sparkles size={14} />
-          {t('preview.eyebrow')}
+          {t('home.welcome.eyebrow')}
         </Badge>
-        <h1>{t('preview.title')}</h1>
-        <p>{t('preview.subtitle')}</p>
-        <div className="preview-welcome-actions">
+        <h1>{t('home.welcome.title')}</h1>
+        <p>{t('home.welcome.subtitle')}</p>
+        <div className="home-welcome-actions">
           <Button asChild size="lg">
             <Link to="/login">
               <LogIn size={16} />
@@ -36,23 +36,23 @@ export function PreviewWelcome() {
         </div>
       </section>
 
-      <Card className="preview-welcome-card">
+      <Card className="home-welcome-card">
         <CardHeader>
-          <CardTitle>{t('preview.editTitle')}</CardTitle>
-          <CardDescription>{t('preview.editSubtitle')}</CardDescription>
+          <CardTitle>{t('home.welcome.editTitle')}</CardTitle>
+          <CardDescription>{t('home.welcome.editSubtitle')}</CardDescription>
         </CardHeader>
-        <CardContent className="preview-welcome-steps">
+        <CardContent className="home-welcome-steps">
           <div>
             <Code2 size={18} />
-            <span>{t('preview.steps.home')}</span>
+            <span>{t('home.welcome.steps.home')}</span>
           </div>
           <div>
             <Code2 size={18} />
-            <span>{t('preview.steps.auth')}</span>
+            <span>{t('home.welcome.steps.auth')}</span>
           </div>
           <div>
             <Code2 size={18} />
-            <span>{t('preview.steps.config')}</span>
+            <span>{t('home.welcome.steps.config')}</span>
           </div>
         </CardContent>
       </Card>

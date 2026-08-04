@@ -35,7 +35,7 @@ When this template is opened in the Pubflow agent workspace, the in-browser prev
 
 - First preview boot can take **2–5 minutes** while dependencies install inside the browser runtime.
 - The `dev:preview` script is tuned for the workspace preview (`vite dev --host 0.0.0.0`).
-- Set `VITE_PREVIEW_MODE=true` only in the Coding Agent/browser preview to show the friendly welcome screen at `/`.
+- `/` always shows the home welcome screen (`src/components/home-welcome.tsx`); edit copy in `src/locales/*/common.json` under `home.welcome`.
 - Heavy deploy/test tooling (`wrangler`, `vitest`, etc.) is not part of the default install; use `npx` when you need those checks locally.
 
 If preview install is slow or blocked on your network, set `VITE_CODING_BROWSER_PROVIDER=webcontainer` on the console client as a fallback.
@@ -57,7 +57,6 @@ VITE_ACCENT_COLOR=#f97316
 VITE_DEFAULT_THEME=system
 VITE_DEFAULT_LANGUAGE=en
 VITE_PUBLIC_PATHS=/,/login,/register,/forgot-password
-VITE_PREVIEW_MODE=false
 ```
 
 ## Scripts
