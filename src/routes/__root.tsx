@@ -54,7 +54,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             config={{
               id: 'default',
               baseUrl: PUBFLOW_CONFIG.API_BASE_URL,
-              bridgeBasePath: PUBFLOW_CONFIG.BRIDGE_BASE_PATH,
               authBasePath: PUBFLOW_CONFIG.AUTH_BASE_PATH,
               headers: PUBFLOW_CONFIG.BRIDGE_SECRET
                 ? { 'X-Bridge-Secret': PUBFLOW_CONFIG.BRIDGE_SECRET }

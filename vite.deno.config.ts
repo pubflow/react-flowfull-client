@@ -1,14 +1,8 @@
-import { defineConfig, mergeConfig } from 'vite'
 import { nitro } from 'nitro/vite'
-import baseConfig from './vite.config'
+import { createAppConfig } from './vite.config.ts'
 
-export default mergeConfig(
-  baseConfig,
-  defineConfig({
-    plugins: [
-      nitro({
-        preset: 'deno-deploy',
-      }),
-    ],
+export default createAppConfig([
+  nitro({
+    preset: 'deno-deploy',
   }),
-)
+])

@@ -10,9 +10,12 @@ import { buildSocialLoginUrl, getRedirectUrl } from '@/lib/pubflow-config'
 
 export const Route = createFileRoute('/login')({
   component: LoginPage,
-  validateSearch: (search: Record<string, unknown>) => ({
-    message: (search.message as string) || undefined,
-    redirect: (search.redirect as string) || undefined,
+  validateSearch: (search: Record<string, unknown>): {
+    message?: string
+    redirect?: string
+  } => ({
+    ...(typeof search.message === 'string' ? { message: search.message } : {}),
+    ...(typeof search.redirect === 'string' ? { redirect: search.redirect } : {}),
   }),
 })
 

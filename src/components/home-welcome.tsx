@@ -22,7 +22,7 @@ export function HomeWelcome() {
         <p>{t('home.welcome.subtitle')}</p>
         <div className="home-welcome-actions">
           <Button asChild size="lg">
-            <Link to="/login">
+            <Link to="/login" search={{}}>
               <LogIn size={16} />
               {t('actions.goLogin')}
             </Link>

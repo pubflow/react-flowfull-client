@@ -1,45 +1,46 @@
 // Browser preview in Pubflow uses a generated TanStack Start SPA config (client-only).
 // Local `npm run dev` keeps full TanStack Start SSR; only the platform Nodepod preview is client-only.
-import { defineConfig } from 'vite'
+import { defineConfig, type PluginOption } from 'vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
-import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
+import { nitro } from 'nitro/vite'
 
-const config = defineConfig({
-  plugins: [
-    // this is the plugin that enables path aliases
-    viteTsConfigPaths({
-      projects: ['./tsconfig.json'],
-    }),
-    tailwindcss(),
-    tanstackStart({
-      customViteReactPlugin: true,
-    }),
-    viteReact(),
-  ],
-
-  optimizeDeps: {
-    include: [
-      'react',
-      'react-dom',
-      'react/jsx-runtime',
-      '@pubflow/core',
-      '@pubflow/react',
-      'swr'
+export function createAppConfig(extraPlugins: PluginOption[] = []) {
+  return defineConfig({
+    plugins: [
+      tailwindcss(),
+      tanstackStart({
+        srcDirectory: 'src',
+      }),
+      viteReact(),
+      ...extraPlugins,
     ],
-    force: false
-  },
 
-  server: {
-    hmr: {
-      overlay: false
-    }
-  },
+    optimizeDeps: {
+      include: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        '@pubflow/core',
+        '@pubflow/react',
+        'swr',
+      ],
+      force: false,
+    },
 
-  resolve: {
-    dedupe: ['react', 'react-dom', '@pubflow/core', 'swr']
-  }
-})
+    server: {
+      port: 3000,
+      hmr: {
+        overlay: false,
+      },
+    },
 
-export default config
+    resolve: {
+      tsconfigPaths: true,
+      dedupe: ['react', 'react-dom', '@pubflow/core', 'swr'],
+    },
+  })
+}
+
+export default createAppConfig([nitro()])
