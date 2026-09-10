@@ -212,6 +212,7 @@ export function CustomLoginForm({
     try {
       const result = await login({ email: email.trim().toLowerCase(), password });
       if (result?.requires2fa) {
+        // Flowless already sent the OTP on login. Do not auto-call startTwoFactor.
         goToStep('two-factor');
         const firstMethod = result.availableMethods?.[0] || twoFactorMethods[0];
         if (firstMethod) setActiveMethodId(firstMethod.id);
