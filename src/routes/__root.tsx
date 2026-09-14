@@ -1,6 +1,7 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { PubflowProvider } from '@pubflow/react'
 import { I18nextProvider } from 'react-i18next'
+import { FirstPaintThemeScript } from '../components/first-paint-theme'
 import { ThemeProvider } from '../components/theme-provider'
 
 import { PUBFLOW_CONFIG } from '../lib/pubflow-config'
@@ -44,11 +45,12 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <FirstPaintThemeScript storageKey="flowfull-theme" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <I18nextProvider i18n={i18n}>
           <PubflowProvider
             config={{
